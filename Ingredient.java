@@ -5,29 +5,43 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Ingredient
-{
-    // instance variables - replace the example below with your own
-    private int x;
 
-    /**
-     * Constructor for objects of class Ingredient
-     */
-    public Ingredient()
+public class Ingredient {
+    private String name;
+    private double quantity;
+    private IngredientUnit unit;
+    
+    public Ingredient(String name, double quantity, IngredientUnit unit) {
+        this.name = name;
+        this.quantity = quantity;
+        this.unit = unit;
+    }
+    
+    public void setName(String name) 
     {
-        // initialise instance variables
-        x = 0;
+        this.name = name;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public String getName()
     {
-        // put your code here
-        return x + y;
+        return name;
+    }
+
+    public void setQuantity(double quantity)
+    {
+        this.quantity = quantity;
+    }
+    
+    public double getQuantity()
+    {
+        return quantity;
+    }
+    
+    public void setUnity(IngredientUnit unit)
+    {
+        this.unit = unit;
+    }
+    public String format() {
+        return quantity + " " + unit + " of " + name;
     }
 }
