@@ -7,27 +7,36 @@
  */
 public class Soup extends Recipe
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Soup
-     */
-    public Soup()
+    private String brothType;
+    private boolean isSpicy;
+    private int cookingTime;
+     public Soup(String title, int servings, String brothType, boolean isSpicy, int cookingTime)
     {
-        // initialise instance variables
-        x = 0;
+        super(title, servings);
+        this.brothType = brothType;
+        this.isSpicy = isSpicy;
+        this.cookingTime = cookingTime;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public String getBrothType() 
     {
-        // put your code here
-        return x + y;
+        return brothType;
+    }
+    
+    public boolean getIsSpicy() 
+    {
+        return isSpicy;
+    }
+    
+    public int getCookingTime() 
+    {
+        return cookingTime;
+    }
+    
+    public void printDetails()
+    {
+        super.printDetails();
+        System.out.println("Broth Type: " + brothType);
+        System.out.println("Spicy: " + isSpicy);
+        System.out.println("Cooking Time: " + cookingTime + " minutes");
     }
 }

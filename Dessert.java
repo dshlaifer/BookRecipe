@@ -7,27 +7,40 @@
  */
 public class Dessert extends Recipe
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private int sweetnessLevel;
+    private boolean isFrozen;
+    private int calories;
 
     /**
      * Constructor for objects of class Dessert
      */
-    public Dessert()
+    public Dessert(String title, int servings, int sweetnessLevel, boolean isFrozen, int calories)
     {
-        // initialise instance variables
-        x = 0;
+        super(title, servings);
+        this.sweetnessLevel = sweetnessLevel;
+        this.isFrozen = isFrozen;
+        this.calories = calories;
     }
+    public int getSweetnessLevel()
+    {
+        return sweetnessLevel;
+    }
+    public boolean getIsFrozen()
+    {
+        return isFrozen;
+    }
+    public int getCalories()
+    {
+        return calories;
+    }
+    
+    public void printDetails()
+    {
+        super.printDetails();
+        System.out.println("Sweetness Level: " + sweetnessLevel);
+        System.out.println("Frozen: " + isFrozen);
+        System.out.println("Calories: " + calories);
+    }
+    
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
 }

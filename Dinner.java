@@ -7,27 +7,34 @@
  */
 public class Dinner extends Recipe
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Dinner
-     */
-    public Dinner()
+    private String proteinType;
+    private int cookTime;
+    private boolean isHealthy;
+    public Dinner(String title, int servings, String proteinType, int cookTime, boolean isHealthy)
     {
-        // initialise instance variables
-        x = 0;
+        super(title, servings);
+        this.proteinType = proteinType;
+        this.cookTime = cookTime;
+        this.isHealthy = isHealthy;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public String getProteinType() 
     {
-        // put your code here
-        return x + y;
+        return proteinType;
+    }
+    public int getCookTime() 
+    {
+        return cookTime;
+    }
+    public boolean getIsHealthy() 
+    {
+        return isHealthy;
+    }
+    
+    public void printDetails()
+    {
+        super.printDetails();
+        System.out.println ("protein Type: " + proteinType);
+        System.out.println ("Cook Time: " + cookTime + " minutes");
+        System.out.println ("Healthy: " + isHealthy);
     }
 }
