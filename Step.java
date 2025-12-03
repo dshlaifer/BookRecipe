@@ -7,16 +7,18 @@
  */
 public class Step
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    
+    private int stepNumber;
+    private String description;
+
 
     /**
      * Constructor for objects of class Step
      */
-    public Step()
+    public Step(int stepNumber, String description)
     {
-        // initialise instance variables
-        x = 0;
+        this.stepNumber = stepNumber;
+        this.description = description;
     }
 
     /**
@@ -25,9 +27,23 @@ public class Step
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public void setDescription(String description)
     {
-        // put your code here
-        return x + y;
+       this.description = description;
     }
+    public String getDescription()
+    {
+        return description;
+    }
+    public void setStepNumber(int stepNumber)
+    {
+        this.stepNumber = stepNumber;
+    }
+    public int getStepNumber(){
+        return stepNumber;
+    }
+     public String format(){
+        return "Step " + stepNumber + " : " + description;
+    }
+   
 }
