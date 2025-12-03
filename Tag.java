@@ -8,15 +8,14 @@
 public class Tag
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private String label;
 
     /**
      * Constructor for objects of class Tag
      */
-    public Tag()
+    public Tag(String label)
     {
-        // initialise instance variables
-        x = 0;
+      this.label = label;
     }
 
     /**
@@ -25,9 +24,16 @@ public class Tag
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public void setLabel(String label)
     {
-        // put your code here
-        return x + y;
+        this.label = label;
+    }
+    public String getLabel()
+    {
+        return label;
+    }
+    public String format()
+    {
+        return "#" + label;
     }
 }
