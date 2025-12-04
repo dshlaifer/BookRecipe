@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Write a description of class RecipeBook here.
@@ -20,8 +21,18 @@ public class RecipeBook
     public RecipeBook()
     {
         this.author = author;
-        id = 0;
+        this.id = 0;
+        this.author = "";
+        this.recipe = new ArrayList();
         
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getId()
+    {
+        return id;
     }
 
     /**
@@ -50,5 +61,64 @@ public class RecipeBook
     public List getRecipes()
     {
         return recipe;
+    }
+    public void addRecipe(Recipe r)
+    {
+        recipe.add(r);
+    }
+    public void listAll()
+    {
+        for (Recipe r : recipe) {
+            r.printDetails();
+            System.out.println("--------------");
+        }
+    }
+    public Recipe searchByTitle(String t)
+    {
+        for (Recipe r : recipe) {
+            if (r.getTitle().equalsIgnoreCase(t)) {
+                return r;
+            }
+        }
+        return null;
+    }
+    public List<Recipe> SearchByIngredient(String ingredient)
+    {
+        List<Recipe> result = new ArrayList<>();
+        
+        for (Recipe r : recipe) {
+            for (Ingredient ing : r.getIngredients()) {
+                if (ing. getName().equalsIgnoreCase(ingredient)) {
+                    result.add(r);
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+    
+    public Recipe searchByid(int id)
+    {
+        for (Recipe r : recipe) {
+            if (r.getId() == id) {
+                return r;
+            }
+        }
+        return null;
+    }
+    public Recipe getTopRated()
+    {
+        if (recipe.isEmpty())
+        {
+            return null;
+        }
+        Recipe best = recipe.get(0);
+        
+        for (Recipe r : recipe) {
+            if (r.getRating() > best.getRating()) {
+                best = r;
+            }
+        }
+        return best;
     }
 }

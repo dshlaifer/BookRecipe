@@ -15,6 +15,7 @@ public class Recipe
     private List<Step> steps;
     private List<Tag> tags;
     private double rating;
+    private int id;
 
     /**
      * Constructor for objects of class Recipe
@@ -27,6 +28,7 @@ public class Recipe
         this.steps = new ArrayList<>();
         this.tags = new ArrayList<>();
         this.rating = 0.0;
+        this.id = 0;
     }
 
     /**
@@ -59,13 +61,25 @@ public class Recipe
     {
       return tags;
     }
-        public double getRatings()
+    public void setRating( double Rating)
+    {
+        this.rating = rating;
+    }
+        public double getRating()
     {
       return rating;
     }
     public void addRating(double r)
     {
         this.rating = r;
+    }
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+    public int getId()
+    {
+        return id;
     }
     
     public void scale(int newServings)
