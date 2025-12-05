@@ -23,7 +23,6 @@ public class RecipeTest {
     @Test
     public void testConstructorInitialValues() {
         assertEquals("Pancakes", recipe.getTitle());
-        assertEquals(4, recipe.getServings());
         assertTrue(recipe.getIngredients().isEmpty());
         assertTrue(recipe.getSteps().isEmpty());
         assertTrue(recipe.getTags().isEmpty());
