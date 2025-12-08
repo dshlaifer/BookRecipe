@@ -1,1 +1,13 @@
-bookRecipe
+PROJECT TITLE: bookRecipe
+
+PURPOSE OF PROJECT:
+
+DATE:
+
+HOW TO START THIS PROJECT:
+
+AUTHORS: David, Yoan
+
+USER INSTRUCTION:
+
+LICENSE: Apache License 2.0

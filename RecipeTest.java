@@ -95,7 +95,7 @@ public class RecipeTest {
         Ingredient ing = new Ingredient("Water", 1.0, IngredientUnit.CUP);
         recipe.addIngredient(ing);
 
-        recipe.scale(0); // invalid → should do nothing
+        recipe.scale(0);
 
         assertEquals(1.0, recipe.getIngredients().get(0).getQuantity());
     }

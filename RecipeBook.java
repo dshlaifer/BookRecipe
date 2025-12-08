@@ -26,6 +26,39 @@ public class RecipeBook
         this.recipe = new ArrayList();
         
     }
+    public static void main(String[] args) {
+    System.out.println("this is my menu");
+    System.out.println(args[0]);
+    System.out.println(args[1]);
+    
+    boolean exit = false;
+    int choice = 1;
+
+    switch (choice) {
+        case 1:
+            System.out.println("Option 1 selected");
+            break;
+
+        case 2:
+            System.out.println("Option 2 selected");
+            break;
+
+        case 3:
+            System.out.println("Option 3 selected");
+            break;
+
+        case 0:
+            System.out.println("Exiting...");
+            exit = true;
+            break;
+
+        default:
+            System.out.println("Invalid option");
+            break;
+    }
+}
+
+
     public void setId(int id) {
         this.id = id;
     }

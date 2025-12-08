@@ -17,7 +17,7 @@ public class RecipeBookTest {
         myBook.setTitle("My Favorite Recipes");
         myBook.setAuthor("Gordon Ramsey");
 
-        // Create first Recipe: Pancakes
+        
         pancake = new Recipe("Pancakes", 4);
         pancake.addIngredient(new Ingredient("Flour", 2, IngredientUnit.CUP));
         pancake.addIngredient(new Ingredient("Milk", 1.5, IngredientUnit.CUP));
