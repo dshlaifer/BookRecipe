@@ -15,7 +15,7 @@ public class Tag
      */
     public Tag(String label)
     {
-      this.label = label;
+      this.label = (label == null) ? "" : label;
     }
 
     /**
@@ -26,7 +26,8 @@ public class Tag
      */
     public void setLabel(String label)
     {
-        this.label = label;
+        this.label = (label == null) ? "" : label;
+
     }
     public String getLabel()
     {

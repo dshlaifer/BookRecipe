@@ -13,8 +13,8 @@ public class Dinner extends Recipe
     public Dinner(String title, int servings, String proteinType, int cookTime, boolean isHealthy)
     {
         super(title, servings);
-        this.proteinType = proteinType;
-        this.cookTime = cookTime;
+        this.proteinType = (proteinType == null) ? "" : proteinType;
+        this.cookTime = Math.max(0, cookTime);
         this.isHealthy = isHealthy;
     }
     public String getProteinType() 
@@ -30,6 +30,7 @@ public class Dinner extends Recipe
         return isHealthy;
     }
     
+    @Override
     public void printDetails()
     {
         super.printDetails();

@@ -17,8 +17,8 @@ public class Step
      */
     public Step(int stepNumber, String description)
     {
-        this.stepNumber = stepNumber;
-        this.description = description;
+        this.stepNumber = Math.max(1, stepNumber);
+        this.description = (description == null) ? "" : description;
     }
 
     /**
@@ -29,7 +29,7 @@ public class Step
      */
     public void setDescription(String description)
     {
-       this.description = description;
+       this.description = (description == null) ? "" : description;
     }
     public String getDescription()
     {
@@ -37,7 +37,7 @@ public class Step
     }
     public void setStepNumber(int stepNumber)
     {
-        this.stepNumber = stepNumber;
+        this.stepNumber = Math.max(1, stepNumber);
     }
     public int getStepNumber(){
         return stepNumber;

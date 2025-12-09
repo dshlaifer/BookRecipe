@@ -19,7 +19,7 @@ public class Ingredient {
     
     public void setName(String name) 
     {
-        this.name = name;
+        this.name = (name == null) ? "" : name;;
     }
 
     public String getName()
@@ -29,7 +29,7 @@ public class Ingredient {
 
     public void setQuantity(double quantity)
     {
-        this.quantity = quantity;
+        this.quantity = Math.max(0.0, quantity);
     }
     
     public double getQuantity()
@@ -39,9 +39,10 @@ public class Ingredient {
     
     public void setUnity(IngredientUnit unit)
     {
-        this.unit = unit;
+        this.unit = (unit == null) ? IngredientUnit.PIECE : unit;
     }
     public String format() {
-        return quantity + " " + unit + " of " + name;
+        String u = (unit == null) ? "" : unit.toString();
+        return String.format("%.2f %s of %s", quantity, u, name);
     }
 }

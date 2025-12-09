@@ -11,9 +11,10 @@ public class Recipe
     // instance variables - replace the example below with your own
     private String title;
     private int servings;
-    private List<Ingredient> ingredients;
-    private List<Step> steps;
-    private List<Tag> tags;
+    private final List<Ingredient> ingredients;
+    private final List<Step> steps;
+    private final List<Tag> tags;
+    private int ratingCount;
     private double rating;
     private int id;
 
@@ -22,12 +23,13 @@ public class Recipe
      */
     public Recipe(String title, int servings)
     {
-        this.title = title;
-        this.servings = servings;
+        this.title = (title == null) ? "" : title;
+        this.servings = Math.max(1, servings);
         this.ingredients = new ArrayList<>();
         this.steps = new ArrayList<>();
         this.tags = new ArrayList<>();
         this.rating = 0.0;
+        this.ratingCount = 0;
         this.id = 0;
     }
 
@@ -39,7 +41,7 @@ public class Recipe
      */
     public void setTitle(String title)
     {
-      this.title = title;
+      this.title = (title == null) ? "" : title;
     }
     public String getTitle()
     {
@@ -47,7 +49,12 @@ public class Recipe
     }
     public void setServings(int servings)
     {
+        if (servings > 0) {
       this.servings = servings;
+    }
+    }
+    public int getServings() {
+        return servings;
     }
     public List<Ingredient> getIngredients()
     {
@@ -63,16 +70,24 @@ public class Recipe
     }
     public void setRating( double Rating)
     {
-        this.rating = rating;
+        if (rating >= 0.0) {
+            this.rating = rating;
+            this.ratingCount = (rating > 0.0) ? 1 : 0;
+        }
     }
         public double getRating()
     {
       return rating;
     }
-    public void addRating(double r)
-    {
-        this.rating = r;
+    public int getRatingCount() {
+        return ratingCount; 
     }
+    public void rate(double r) {
+        if (r < 0.0) return;
+        this.rating = (this.rating * this.ratingCount + r) / (this.ratingCount + 1);
+        this.ratingCount++;
+    }
+
     public void setId(int id)
     {
         this.id = id;
@@ -81,7 +96,14 @@ public class Recipe
     {
         return id;
     }
-    
+    public void addRating(double newRating) {
+        if (newRating < 0 || newRating > 5) {
+            System.out.println("Rating must be between 0 and 5.");
+            return;
+        }
+        rating = (rating * ratingCount + newRating) / (ratingCount + 1);
+        ratingCount++;
+    }
     public void scale(int newServings)
     {
         if (newServings <= 0)
@@ -98,38 +120,50 @@ public class Recipe
     
     public void addIngredient( Ingredient ingredient)
     {
+        if (ingredient == null) return;
         ingredients.add(ingredient);
     }
     public void addStep(Step step)
     {
+        if (step == null) return;
         steps.add(step);
     }
     public void addTag(Tag tag)
     {
+        if (tag == null) return;
         tags.add(tag);
     }
-    
-    public void printDetails()
-    {
-        System.out.println("Recipe: " + title);
+        public void printDetails() {
+        System.out.println("Recipe: " + title + (id != 0 ? " (id:" + id + ")" : ""));
         System.out.println("Servings: " + servings);
-        System.out.println("Rating: " + rating);
+        System.out.printf("Rating: %.2f (%d rating%s)%n", rating, ratingCount, (ratingCount==1?"":"s"));
         System.out.println("\nIngredients:");
-        for (Ingredient i : ingredients)
-        {
-            System.out.println(" - " + i.format());
+        if (ingredients.isEmpty()) {
+            System.out.println("  (none)");
+        } else {
+            for (Ingredient i : ingredients) {
+                System.out.println(" - " + (i == null ? "(null ingredient)" : i.format()));
+            }
         }
-        
+
         System.out.println("\nSteps:");
-        for (Step s : steps)
-        {
-            System.out.println(s.format());
+        if (steps.isEmpty()) {
+            System.out.println("  (none)");
+        } else {
+            for (Step s : steps) {
+                System.out.println(s.format());
+            }
         }
-        
+
         System.out.println("\nTags:");
-        for (Tag t : tags)
-        {
-            System.out.println(" #" + t.getLabel());
+        if (tags.isEmpty()) {
+            System.out.println("  (none)");
+        } else {
+            for (Tag t : tags) {
+                System.out.println(" " + (t == null ? "(null tag)" : t.format()));
+            }
         }
     }
+    
+
 }

@@ -8,5 +8,16 @@
 public enum IngredientUnit
 {
     
-    TEASPOON, TABLESPOON, CUP, MILLILITER, LITER, GRAM, KILOGRAM, OUNCE, POUND , PIECE
+    TEASPOON("teaspoon"), TABLESPOON("tablespoon"), CUP("cup"), MILLILITER("milliliter"), LITER("liter"), GRAM("gram"), KILOGRAM("kilogram"), OUNCE("ounce"), POUND("pound") , PIECE("piece");
+    
+    private final String label;
+    
+    IngredientUnit(String label) {
+        this.label = label;
+    }
+    
+    @Override
+    public String toString(){
+        return label;
+    }
 }

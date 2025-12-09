@@ -17,9 +17,9 @@ public class Dessert extends Recipe
     public Dessert(String title, int servings, int sweetnessLevel, boolean isFrozen, int calories)
     {
         super(title, servings);
-        this.sweetnessLevel = sweetnessLevel;
+        this.sweetnessLevel = Math.max(0, Math.min(10, sweetnessLevel));
         this.isFrozen = isFrozen;
-        this.calories = calories;
+        this.calories = Math.max(0, calories);
     }
     public int getSweetnessLevel()
     {
@@ -34,6 +34,7 @@ public class Dessert extends Recipe
         return calories;
     }
     
+    @Override
     public void printDetails()
     {
         super.printDetails();

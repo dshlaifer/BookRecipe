@@ -66,7 +66,7 @@ public class RecipeTest {
     @Test
     public void testAddRating() {
         recipe.addRating(4.7);
-        assertEquals(4.7, recipe.getRating());
+        assertEquals(4.7, recipe.getRating(), 0.0001);
     }
 
     @Test

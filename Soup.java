@@ -13,9 +13,9 @@ public class Soup extends Recipe
      public Soup(String title, int servings, String brothType, boolean isSpicy, int cookingTime)
     {
         super(title, servings);
-        this.brothType = brothType;
+        this.brothType = (brothType == null) ? "" : brothType;
         this.isSpicy = isSpicy;
-        this.cookingTime = cookingTime;
+        this.cookingTime = Math.max(0, cookingTime);
     }
     public String getBrothType() 
     {
@@ -32,6 +32,7 @@ public class Soup extends Recipe
         return cookingTime;
     }
     
+    @Override
     public void printDetails()
     {
         super.printDetails();
