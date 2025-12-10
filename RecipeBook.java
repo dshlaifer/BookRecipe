@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class RecipeBook
 {
-    // instance variables - replace the example below with your own
+    
     private String title;
     private String author;
     private  ArrayList<Recipe> recipe;
