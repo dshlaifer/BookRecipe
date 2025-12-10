@@ -12,7 +12,7 @@ public class RecipeBook
     // instance variables - replace the example below with your own
     private String title;
     private String author;
-    private final List<Recipe> recipe;
+    private  ArrayList<Recipe> recipe;
     private int id;
     private int nextRecipeId;
 
@@ -24,7 +24,7 @@ public class RecipeBook
         this.author = "";
         this.id = 0;
         this.author = "";
-        this.recipe = new ArrayList();
+        this.recipe = new ArrayList<Recipe>();
         this.nextRecipeId = 1;
         
     }
